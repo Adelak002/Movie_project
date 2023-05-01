@@ -52,8 +52,12 @@ body {
   flex: 25%;
   max-width: 24%;
   margin-top: 20px;
-   /* position: relative;  */
    margin-left: 11px;
+   position: relative;
+   text-align: center;
+   color: rgb(109, 109, 224);
+
+
 }
 .column:hover{
   background-color: #530500;
@@ -63,89 +67,29 @@ body {
 }
 
  .column img {
-  
-   /* position: absolute;  */
   width: 100%;
+
 } 
-i{font-size: 20px;
- margin-top: ;} 
-.play{
-width: 40px;
-height: 40px;
-padding-top: 10px;
-background-color:white;
-border-radius: 50%;
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+}
 
-}
-.button{
-  border-color: white;
-  text-align: center;
-  border: 1px solid whitesmoke; 
-}
-.button:hover {
-  background-color: #f44336;
-  color: white;
-}
-.add{
-width: 40px;
-height: 40px;
-padding-top: 10px;
-background-color:white;
-border-radius: 50%;
-
-}
-.like{
-width: 40px;
-height: 40px;
-padding-top: 10px;
-background-color:white;
-border-radius: 50%;
-
-}
-.more_info{
-width: 40px;
-height: 40px;
-padding-top: 10px;
-background-color:white;
-border-radius: 50%;
-
-}
-.icons{
+.title{
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  /* background-color: green; */
-  width: 100%;
-  margin-right: 18px;
-
+  justify-content: center;
 }
-.part1{width: 70%;
-      height: 100%px;
-      /* background-color: yellow; */
+
+    .icons{
       display: flex;
-      /* justify-content: space-around; */
-      padding-left: 20px;
-      margin-left: 10px;
-      gap: 10px;
+      justify-content: space-between;
+      margin-left: 20px;
+      margin-right: 20px;
     }
-    .part2{
-      /* background-color: brown; */
-      display: flex;
-      justify-content: center;
-      width: 30%;
-    }
-    .title{
-      display: flex;
-      justify-content: center;
-    }
-    .footer ul{
-      margin-top: -10px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    padding-left: 2px;
-    
-    }
+ 
 
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media (max-width: 1200px) {
