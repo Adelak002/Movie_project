@@ -15,11 +15,10 @@ fetch(url)
 }
 load()
 
-let row = document.getElementById('row')
-
+let row = document.getElementById('row');
 
 function showmovie(movies) {
-
+ 
   j = 0; 
   for (let i = 0; i < movies.length; i++) {
 
@@ -36,7 +35,7 @@ function showmovie(movies) {
         div.classList.add('column');
         
         div.innerHTML = `
-        <img src=" ${path}${image}" alt="">
+ <img class="imag" src=" ${path}${image}" alt="">
 
 <div class="centered">${title}</div>
         
@@ -49,21 +48,59 @@ function showmovie(movies) {
       `
       row.append(div);
 
-let like_movie = document.querySelectorAll('.like');
+let  like_movie = document.querySelectorAll('.like');
 
 like_movie[j].onclick = function (){
   this.classList.toggle("fa-thumbs-up")
   this.classList.toggle("fa-thumbs-down")
-  
-}
 
-
-
-    j++;
+    
     }
     
+    
+  
+  // Get the modal
+  var modal = document.getElementById("myModal");
+ // Get images that opens the modal
+  let imag = document.querySelectorAll('.imag');
+
+  imag[j].onclick = function (){
+  
+      modal.style.display = "block";
+      
+    }
+
+    j++;
   } 
+ 
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks the button, open the modal 
+
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+ 
+  
+
+  }
 }
+   
+
 
 
 
