@@ -11,6 +11,8 @@ body {
   margin: 0;
   font-family: Arial;
   background-image: url(../img/unnamed.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .header{
@@ -81,6 +83,7 @@ body {
   font-size: 30px;
   font-family: 'Abril Fatface', cursive;
   font-size: 20px;
+  text-shadow: 3px 3px black;
 }
 
 .title{
@@ -107,7 +110,7 @@ body {
       left: 0;
       top: 0;
       width: 100%; /* Full width */
-      height: 100vh; /* Full height */
+      height: 80vh; /* Full height */
       overflow: auto; /* Enable scroll if needed */
       background-color: rgb(0,0,0); /* Fallback color */
       background-color: rgba(0,0,0,0.4); /* Black w/ opacity */

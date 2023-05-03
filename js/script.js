@@ -26,6 +26,7 @@ function showmovie(movies) {
     let path = "https://image.tmdb.org/t/p/original";
     let image = movies[i].backdrop_path;
     let title = movies[i].original_title;
+    let movie_id = movies[i].id;
      console.log(image);
 
     if (movies[i].original_title != undefined
@@ -64,9 +65,21 @@ like_movie[j].onclick = function (){
  // Get images that opens the modal
   let imag = document.querySelectorAll('.imag');
 
-  imag[j].onclick = function (){
+  imag[j].onclick = async function (){
   
       modal.style.display = "block";
+      let my_video = await video_details(movie_id).then((data) =>{
+        let youtube_path = "https://www.youtube.com/embed/";
+        document.getElementById('video').src = youtube_path + data[0].key;
+        console.log(data);
+      });
+  //  let modal =document.getElementById("myModal");
+   let modal_content = document.getElementById("modal-content");
+   let picture =document.getElementById("picture");
+   let text = document.getElementById("text");
+   let movie_overview = movies[i].overview;
+   //let video = document.getElementById("video")
+   text.innerHTML = document.createElement("h5").innertext=`${movie_overview }`
       
     }
 
@@ -84,14 +97,16 @@ like_movie[j].onclick = function (){
 
   
   // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
+   span.onclick = function() {
+     modal.style.display = "none";
+     document.getElementById("video").src = "";
+   }
   
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
+      document.getElementById("video").src = "";
     }
   }
  
@@ -100,8 +115,24 @@ like_movie[j].onclick = function (){
   }
 }
    
-
-
+async function video_details(id) {
+  let output = [];
+  let out = "";
+  output = fetch(
+    `https://api.themoviedb.org/3/movie/${id}/videos?api_key=f7e65740c28f0e6ddf5f412c8e4df4f8&language=en-US`
+  )
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+   // console.log(data);
+    return  out = data.results.filter(
+      (item) => item.type == "Trailer" && item.name == "Official Trailer"
+    );
+    //console.log(out);
+  });
+return output;
+}
 
 
 
